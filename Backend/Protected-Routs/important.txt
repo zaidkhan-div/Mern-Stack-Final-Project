@@ -1,0 +1,6 @@
+npm i express jsonwebtoken dotenv bcrypt mysql 
+
+.env for json web tokens
+
+bcrypt is a package used to hashed the password in string form
+It's commonly used for user authentication to store hashed passwords in a database.
