@@ -19,8 +19,8 @@ console.log(process.env);
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '@suffah1234@@',
-  database: 'user_auth'
+  password: '@mysql!12#',
+  database: 'testing'
 });
 
 db.connect((err) => {
@@ -30,6 +30,7 @@ db.connect((err) => {
   }
   console.log('Connected to the database.');
 });
+
 
 // Register Route
 app.post('/register', async (req, res) => {
@@ -51,7 +52,6 @@ app.post('/register', async (req, res) => {
 // Login Route
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-
   const sql = 'SELECT * FROM users WHERE username = ?';
   db.query(sql, [username], async (err, results) => {
     if (err) return res.status(500).json({ message: 'Server error', error: err.message });
@@ -84,8 +84,16 @@ app.get('/profile', authenticateToken, (req, res) => {
   });
 });
 
+
+
+
+app.get('/',(req,res)=>{
+  res.send('Hello world')
+})
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+

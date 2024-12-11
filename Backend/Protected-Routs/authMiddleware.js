@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const JWT_SECRET_KEY=""
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -12,7 +12,7 @@ const authenticateToken = (req, res, next) => {
     return res.status(401).json({ message: 'Token is required' });
   }
 
-  jwt.verify(token,   , (err, decoded) => {
+  jwt.verify(token, JWT_SECRET_KEY, (err, decoded) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid or expired token' });
     }
