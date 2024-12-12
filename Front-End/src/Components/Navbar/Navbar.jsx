@@ -34,7 +34,7 @@ import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/Logo.svg'
 import Top from './Top';
 
@@ -43,32 +43,37 @@ const Navbar = () => {
   return (
     <>
       <Top />
-        <div className="container">
-          <div className='navbar'>
+      <div className="container">
+        <div className='navbar'>
 
-            <div className="logo">
-              <Link to='/'><img src={Logo} alt="" /></Link>
+          <div className="logo">
+            <Link to='/'><img src={Logo} alt="" /></Link>
+          </div>
+
+          <div className="menu-section">
+            <ul className='menu'>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About Us</Link>
+              <Link to='/products'>Products</Link>
+              <Link to='/contact'>Contact Us</Link>
+            </ul>
+          </div>
+
+          <div className="icon-section">
+            <div>
+              <FontAwesomeIcon icon={faCartShopping} />
             </div>
-
-            <div className="menu-section">
-              <ul className='menu'>
-                <Link to='/'>Home</Link>
-                <Link to='/about'>About Us</Link>
-                <Link to='/products'>Products</Link>
-                <Link to='/contact'>Contact Us</Link>
-              </ul>
-            </div>
-
-            <div className="icon-section">
-              <div>
-                <FontAwesomeIcon icon={faCartShopping} />
-              </div>
-              <div>
+            <div>
+              <Link to='/login'>
                 <FontAwesomeIcon icon={faUser} />
-              </div>
+              </Link>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faHeart} />
             </div>
           </div>
         </div>
+      </div>
     </>
   )
 }

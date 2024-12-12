@@ -5,6 +5,8 @@ import Home from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Products from './Pages/Products/Products'
 import Contact from './Pages/Contact/Contact'
+import Admin from './Components/Admin-Pannel/Admin'
+import Login from './Pages/Login-&-Register/Login'
 
 
 
@@ -16,6 +18,8 @@ const App = () => {
         <Route path='about' element={<About />} />
         <Route path='products' element={<Products />} />
         <Route path='contact' element={<Contact />} />
+        <Route path='admin' element={<Admin />} />
+        <Route path='login' element={<Login />} />
       </Routes>
     </div>
   )
