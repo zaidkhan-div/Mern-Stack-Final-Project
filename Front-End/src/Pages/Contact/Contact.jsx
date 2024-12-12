@@ -4,7 +4,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 const Contact = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <h1>This is Contact Page</h1>
     </div>
   )

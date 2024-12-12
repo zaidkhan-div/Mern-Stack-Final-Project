@@ -108,4 +108,30 @@
         display: none;
     }
 } */
+.container {
+    width: 100%;
+}
 
+.navbar {
+    background-color: red;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo{
+    width: 150px;
+    list-style: none;
+}
+
+.menu ul{
+        display: flex;
+        cursor: pointer;
+        list-style: none;
+        gap: 20px;
+        color: #49557e;
+        font-size: 18px;
+}
