@@ -33,34 +33,42 @@
 import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../../assets/Logo.svg'
+import Top from './Top';
 
 
 const Navbar = () => {
   return (
     <>
-    <div className="container">
-      <div className='navbar'>
-        <div className="logo">
-          <Link to='/'> <h1>Logo</h1></Link>
-        </div>
-        <div className="menu">
-          <ul>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About Us</Link>
-            <Link to='/products'>Shop-Online</Link>
-            <Link to='/products'>Products</Link>
-            <Link to='contact'>Contact Us</Link>
-          </ul>
-        </div>
-        <div className="cart-section">
-          <div className="login">
-            <FontAwesomeIcon icon={faUser} />
+      <Top />
+        <div className="container">
+          <div className='navbar'>
+
+            <div className="logo">
+              <Link to='/'><img src={Logo} alt="" /></Link>
+            </div>
+
+            <div className="menu-section">
+              <ul className='menu'>
+                <Link to='/'>Home</Link>
+                <Link to='/about'>About Us</Link>
+                <Link to='/products'>Products</Link>
+                <Link to='/contact'>Contact Us</Link>
+              </ul>
+            </div>
+
+            <div className="icon-section">
+              <div>
+                <FontAwesomeIcon icon={faCartShopping} />
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faUser} />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
     </>
   )
 }

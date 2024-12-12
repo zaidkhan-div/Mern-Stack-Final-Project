@@ -122,16 +122,27 @@
     margin: auto;
 }
 
-.logo{
-    width: 150px;
-    list-style: none;
+.logo {
+    width: 100px;
 }
 
-.menu ul{
-        display: flex;
-        cursor: pointer;
-        list-style: none;
-        gap: 20px;
-        color: #49557e;
-        font-size: 18px;
+.menu {
+    display: flex;
+    cursor: pointer;
+    gap: 20px;
+    font-size: 18px;
+
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+}
+
+.icon-section {
+    font-size: 1.3rem;
+    padding: 0rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }

@@ -1,0 +1,32 @@
+.top-bar {
+    width: 100%;
+    background-color: black;
+    overflow: hidden; /* Ensures nothing overflows */
+    height: auto;
+    position: relative;
+}
+
+.scroll {
+    display: flex;
+    animation: scrollAnimation 20s linear infinite; /* Creates the horizontal scrolling loop */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tab {
+    flex: 0 0 auto; /* Ensures the tabs stay inline and do not shrink */
+    padding: 10px 20px; /* Padding for better readability */
+    color: white; /* Text color for contrast */
+    font-size: 20px; /* Adjust as needed */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Animation for the scrolling effect */
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

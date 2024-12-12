@@ -11,12 +11,12 @@ import Contact from './Pages/Contact/Contact'
 const App = () => {
   return (
     <div>
-     <Routes>
-      <Route path='/' element={<Home/>} />
-      <Route path='/about' element={<About/>} />
-      <Route path='/products' element={<Products/>} />
-      <Route path='/contact' element={<Contact/>} />
-     </Routes>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='about' element={<About />} />
+        <Route path='products' element={<Products />} />
+        <Route path='contact' element={<Contact />} />
+      </Routes>
     </div>
   )
 }
