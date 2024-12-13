@@ -88,8 +88,9 @@ app.get('/profile', authenticateToken, (req, res) => {
 
 
 app.get('/',(req,res)=>{
-  res.send('Hello world')
+  res.send('Hello world This is Protected Routes')
 })
+console.log(process.env.JWT_SECRET_KEY ,'This is Env File');
 
 // Start the server
 const PORT = process.env.PORT || 3000;

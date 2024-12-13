@@ -108,13 +108,15 @@
         display: none;
     }
 } */
+
+
 .container {
     width: 100%;
 }
 
 .navbar {
-    background-color: red;
-    padding: 1rem 2.5rem;
+    /* background-color: red; */
+    padding: 1.2rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -135,8 +137,29 @@
 }
 
 .menu a {
+    position: relative;
     color: black;
     text-decoration: none;
+}
+
+.active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid black;
+}
+
+.menu a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s ease;
+}
+
+.menu a:hover::before {
+    width: 100%;
 }
 
 .icon-section {
@@ -146,6 +169,7 @@
     align-items: center;
     gap: 1.5rem;
 }
-.icon-section a{
+
+.icon-section a {
     color: black;
 }

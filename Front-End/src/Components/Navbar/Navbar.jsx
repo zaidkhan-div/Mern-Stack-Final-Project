@@ -30,7 +30,7 @@
 
 // export default Navbar
 
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,6 +40,10 @@ import Top from './Top';
 
 
 const Navbar = () => {
+
+
+  const [menu, setMenu] = useState('Home')
+
   return (
     <>
       <Top />
@@ -51,11 +55,14 @@ const Navbar = () => {
           </div>
 
           <div className="menu-section">
-            <ul className='menu'>
-              <Link to='/'>Home</Link>
-              <Link to='/about'>About Us</Link>
-              <Link to='/products'>Products</Link>
-              <Link to='/contact'>Contact Us</Link>
+            <ul className="menu">
+              <Link to="/" onClick={() => setMenu('Home')} className={menu === 'Home' ? 'active' : ''}>Home</Link>
+
+              <Link to="/about" onClick={() => setMenu('About')} className={menu === 'About' ? 'active' : ''}>About Us</Link>
+
+              <Link to="/products" onClick={() => setMenu('Products')} className={menu === 'Products' ? 'active' : ''}>Products</Link>
+
+              <Link to="/contact" onClick={() => setMenu('Contact')} className={menu === 'Contact' ? 'active' : ''}>Contact Us</Link>
             </ul>
           </div>
 
@@ -64,13 +71,14 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faCartShopping} />
             </div>
             <div>
+              <FontAwesomeIcon icon={faHeart} />
+            </div>
+            <div>
               <Link to='/login'>
                 <FontAwesomeIcon icon={faUser} />
               </Link>
             </div>
-            <div>
-              <FontAwesomeIcon icon={faHeart} />
-            </div>
+
           </div>
         </div>
       </div>
