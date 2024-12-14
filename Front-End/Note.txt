@@ -1,0 +1,11 @@
+Products (global access, filtering, sorting).
+Cart (adding, removing, updating quantities).
+User Authentication (login state, user info).
+Orders (tracking and managing orders).
+
+
+Optional chaining (?.) is used in JavaScript to safely access properties of an object or elements of an array without throwing an error if the object or property is undefined or null. Instead of breaking your code, it returns undefined when something doesn't exist.
+
+const user = { profile: { name: "Zaid" } };
+console.log(user.profile?.name); // "Zaid"
+console.log(user.profile?.age); // undefined (doesn't throw an error)

@@ -1,11 +1,11 @@
 import React from 'react'
 import './Home.css'
-import Navbar from '../../Components/Navbar/Navbar'
 import Sidebar from '../../Components/Cart-Sidebar/Sidebar'
+
+
 const Home = () => {
   return (
     <div>
-      <Navbar />
       {/* <Sidebar /> */}
       <div className="hero-section">
         <div className="hero-content">

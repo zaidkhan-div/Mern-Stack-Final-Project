@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../Components/Navbar/Navbar'
 import './Products.css'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart } from '../../redux-slices/cartSlice'
 
 const ProductsData = () => {
   const [items, setItems] = useState()
   const [loading, setLoading] = useState(false)
 
+  const dispatch = useDispatch();
 
   // useEffect(()=>{
   //   ;async
   // }) one is this method for async
-
-
 
   useEffect(() => {
     async function fecthData() {
@@ -24,13 +23,16 @@ const ProductsData = () => {
     }
     fecthData()
   }, [])
-  console.log(items);
 
+  // console.log(items);
 
+  // ?. (optional chaining) to check the 
+  // const user = { profile: { name: "Zaid" } };
+  // console.log(user.profile?.name); // "Zaid"
+  // console.log(user.profile?.age); // undefined (doesn't throw an error)
 
   return (
     <>
-      <Navbar />
       <div className='products-container'>
         {
           loading ? <p style={{ fontSize: "3.5rem", textAlign: "center", marginTop: "5.5rem" }}>Loading...</p> : (
@@ -43,7 +45,7 @@ const ProductsData = () => {
                   <h3 className="product-title">{data.title}</h3>
                   <p className="product-desc">{data.description}</p>
                   <p className="product-price">${data.price}</p>
-                  <button className="add-to-cart">Add to Cart</button>
+                  <button className="add-to-cart" onClick={()=>dispatch(addToCart(data))}>Add to Cart</button>
                 </div>
               </div>
             ))

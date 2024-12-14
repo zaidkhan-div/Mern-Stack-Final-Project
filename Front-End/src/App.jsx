@@ -8,12 +8,15 @@ import Contact from './Pages/Contact/Contact'
 import Admin from './Components/Admin-Pannel/Admin'
 import Login from './Pages/Login-&-Register/Login'
 import Checkout from './Pages/Checkout/Checkout'
+import Cart from './Pages/Cart/Cart'
+import Navbar from './Components/Navbar/Navbar'
 
 
 
 const App = () => {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='about' element={<About />} />
@@ -22,6 +25,7 @@ const App = () => {
         <Route path='admin' element={<Admin />} />
         <Route path='login' element={<Login />} />
         <Route path='checkout' element={<Checkout />} />
+        <Route path='cart' element={<Cart />} />
       </Routes>
     </div>
   )

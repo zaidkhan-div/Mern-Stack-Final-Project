@@ -1,0 +1,28 @@
+.cart-hero {
+    background-color: #f8f5f0;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.cart-hero h1 {
+    font-size: 2.5rem;
+    font-family: Arial, sans-serif;
+    font-weight: 600;
+}
+
+.crumbs-text {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    gap: 0.5rem;
+}
+
+.crumbs-text a {
+    text-decoration: none;
+    color: black;
+}
