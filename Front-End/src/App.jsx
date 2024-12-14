@@ -7,6 +7,7 @@ import Products from './Pages/Products/Products'
 import Contact from './Pages/Contact/Contact'
 import Admin from './Components/Admin-Pannel/Admin'
 import Login from './Pages/Login-&-Register/Login'
+import Checkout from './Pages/Checkout/Checkout'
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='contact' element={<Contact />} />
         <Route path='admin' element={<Admin />} />
         <Route path='login' element={<Login />} />
+        <Route path='checkout' element={<Checkout />} />
       </Routes>
     </div>
   )

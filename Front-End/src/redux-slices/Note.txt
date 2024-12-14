@@ -1,0 +1,4 @@
+Products (global access, filtering, sorting).
+Cart (adding, removing, updating quantities).
+User Authentication (login state, user info).
+Orders (tracking and managing orders).
