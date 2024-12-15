@@ -48,7 +48,7 @@ const Navbar = () => {
     <>
       <Top />
       <div className="container">
-        <div className='navbar'>
+        <div className='main-navbar'>
 
           <div className="logo">
             <Link to='/'><img src={Logo} alt="" /></Link>

@@ -3,14 +3,12 @@ import './Checkout.css'
 import logo from './../../assets/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
 const checkout = () => {
 
 
-  const { cart, totalQuantity, totalPrice } = useSelector((state) => state.allCart)
 
 
 

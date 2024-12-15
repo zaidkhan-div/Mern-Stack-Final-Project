@@ -26,3 +26,36 @@
     text-decoration: none;
     color: black;
 }
+
+.cart-items-section {
+    width: 1300px;
+    margin: auto;
+    border: 1px solid black;
+    height: 50vh;
+    margin-top: 4rem;
+    padding: 2rem 2rem;
+}
+
+.cart-product-title {
+    background-color: #f7f7f7;
+    height: 2rem;
+    width: 60%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+}
+
+.cart-product-price {
+    display: flex;
+    font-size: 18px;
+    gap: 2rem;
+}
+
+.cart-product-tabs {
+    border: 1px solid black;
+    width: 60%;
+    height: 10px;
+    margin-top: 2rem;
+}
