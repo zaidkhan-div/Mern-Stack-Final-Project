@@ -59,3 +59,144 @@
     height: 10px;
     margin-top: 2rem;
 }
+
+
+/* Cart Items Css */
+.cart-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    font-family: 'Roboto', sans-serif; /* Example: Use a modern, readable font */
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  .row {
+    margin-bottom: 30px;
+  }
+  
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .col-md-8 {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .cart-items-wrapper {
+    padding: 20px;
+  }
+  
+  .cart-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .cart-item {
+    margin-bottom: 20px;
+  }
+  
+  .product-image-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .remove-item-btn {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-decrease-btn,
+  .quantity-increase-btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  .quantity-input {
+    width: 40px;
+    margin: 0 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .product-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .product-divider {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  .empty-cart-message {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .cart-summary {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .summary-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .summary-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .summary-item {
+    margin-bottom: 10px;
+  }
+  
+  .summary-item-label {
+    font-weight: bold;
+  }
+  
+  .checkout-btn {
+    background-color: black; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 3px;
+  }
+  
+  /* Responsive design (optional) */
+  @media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+  }

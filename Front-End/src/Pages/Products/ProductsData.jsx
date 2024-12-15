@@ -45,7 +45,7 @@ const ProductsData = () => {
                   <h3 className="product-title">{data.title}</h3>
                   <p className="product-desc">{data.description}</p>
                   <p className="product-price">${data.price}</p>
-                  <button className="add-to-cart" onClick={()=>dispatch(addToCart(data))}>Add to Cart</button>
+                  <button className="add-to-cart" onClick={() => dispatch(addToCart(data))}>Add to Cart</button>
                 </div>
               </div>
             ))

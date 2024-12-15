@@ -9,3 +9,7 @@ Optional chaining (?.) is used in JavaScript to safely access properties of an o
 const user = { profile: { name: "Zaid" } };
 console.log(user.profile?.name); // "Zaid"
 console.log(user.profile?.age); // undefined (doesn't throw an error)
+
+
+in Redux Slices state,action 
+useSelector though we can access data globally

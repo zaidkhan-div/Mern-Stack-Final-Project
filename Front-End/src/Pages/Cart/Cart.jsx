@@ -2,15 +2,19 @@ import React from 'react'
 import './Cart.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
-import { useSelector } from 'react-redux'
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { faGreaterThan, faTrash, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeItem } from '../../redux-slices/cartSlice'
+import { increasementQuantity } from '../../redux-slices/cartSlice'
+import { decreasementQuantity } from '../../redux-slices/cartSlice'
+// import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 
 
 const Cart = () => {
 
   const { cart, totalQuantity, totalPrice } = useSelector((state) => state.allCart)
+  let dispatch = useDispatch();
 
 
 
@@ -55,7 +59,7 @@ const Cart = () => {
       {/* Cart-Items Ui */}
 
       <div>
-        <section className="h-100 gradient-custom">
+        {/* <section className="h-100 gradient-custom">
           <div className="container py-5">
             <div className="row d-flex justify-content-center my-4">
               <div className="col-md-8">
@@ -173,6 +177,152 @@ const Cart = () => {
                       Go to checkout
                     </button>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+        {/* <section className="cart-section">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-md-8">
+                <div className="cart-items-wrapper">
+                  <h5 className="cart-title">Cart - {cart.length} items</h5>
+                  {cart.length > 0 ? (
+                    cart.map((data) => (
+                      <div className="cart-item row" key={data.id}>
+                        <div className="col-lg-3 col-md-12">
+                          <div className="product-image-wrapper">
+                            <img
+                              src={data.img}
+                              alt={data.title}
+                              className="product-image"
+                            />
+                          </div>
+                        </div>
+                        <div className="col-lg-5 col-md-6">
+                          <p className="product-title">{data.title}</p>
+                          <button
+                            className="remove-item-btn"
+                            onClick={() => removeItem(data.id)}
+                          >
+                            <i className="fas fa-trash"></i> Remove
+                          </button>
+                        </div>
+                        <div className="col-lg-4 col-md-6">
+                          <div className="quantity-control d-flex align-items-center">
+                            <button
+                              className="quantity-decrease-btn"
+                              onClick={() => decreaseItemQuantity(data.id)}
+                              disabled={data.quantity === 1}
+                            >
+                              <i className="fas fa-minus"></i>
+                            </button>
+                            <input
+                              type="number"
+                              className="quantity-input"
+                              id={`quantity-${data.id}`}
+                              min="1"
+                              value={data.quantity}
+                              readOnly // Prevent direct quantity editing
+                            />
+                            <button
+                              className="quantity-increase-btn"
+                              onClick={() => increaseItemQuantity(data.id)}
+                            >
+                              <i className="fas fa-plus"></i>
+                            </button>
+                          </div>
+                          <p className="product-price">{data.price}</p>
+                        </div>
+                        <hr className="product-divider" />
+                      </div>
+                    ))
+                  ) : (
+                    <p className="empty-cart-message">Your cart is currently empty.</p>
+                  )}
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="cart-summary">
+                  <h5 className="summary-title">Summary</h5>
+                  <ul className="summary-list">
+                    <li className="summary-item">
+                      <span className="summary-item-label">Total Quantity:</span>
+                      <span className="summary-item-value">{totalQuantity}</span>
+                    </li>
+                    <li className="summary-item">
+                      <span className="summary-item-label">Total Amount:</span>
+                      <span className="summary-item-value">{totalPrice}</span>
+                    </li>
+                  </ul>
+                  <button className="checkout-btn btn btn-primary btn-lg btn-block">
+                    Go to checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+        <section className="cart-section">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8">
+                <div className="cart-items-wrapper">
+                  <h5 className="cart-title">Cart - {cart.length} items</h5>
+                  {cart.length > 0 ? (
+                    cart.map((data) => (
+                      <div className="cart-item row" key={data.id}>
+                        <div className="col-lg-3 col-md-12">
+                          <div className="product-image-wrapper">
+                            <img src={data.images} alt={data.title} className="product-image" />
+                          </div>
+                        </div>
+                        <div className="col-lg-5 col-md-6">
+                          <p className="product-title">{data.title}</p>
+                          <button className="remove-item-btn" onClick={() => dispatch(removeItem(data.id))}>
+                            <FontAwesomeIcon icon={faTrash} /> Remove
+                          </button>
+                        </div>
+                        <div className="col-lg-4 col-md-6">
+                          <div className="quantity-control d-flex align-items-center">
+                            <button
+                              className="quantity-decrease-btn"
+                              onClick={() => dispatch(decreasementQuantity(data.id))}
+                              disabled={data.quantity === 1}>
+                              <FontAwesomeIcon icon={faMinus} />
+                            </button>
+                            <input type="number" className="quantity-input"
+                              id='form1'
+                              value={data.quantity}  readOnly />
+                            <button className="quantity-increase-btn" onClick={() => dispatch(increasementQuantity(data.id))}>
+                              <FontAwesomeIcon icon={faPlus} />
+                            </button>
+                          </div>
+                          <p className="product-price">{data.price}</p>
+                        </div>
+                        <hr className="product-divider" />
+                      </div>
+                    ))
+                  ) : (
+                    <p className="empty-cart-message">Your cart is currently empty.</p>
+                  )}
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="cart-summary">
+                  <h5 className="summary-title">Summary</h5>
+                  <ul className="summary-list">
+                    <li className="summary-item">
+                      <span className="summary-item-label">Total Quantity:</span>
+                      <span className="summary-item-value">{totalQuantity}</span>
+                    </li>
+                    <li className="summary-item">
+                      <span className="summary-item-label">Total Amount:</span>
+                      <span className="summary-item-value">{totalPrice}</span>
+                    </li>
+                  </ul>
+                  <button className="checkout-btn">Go to Checkout</button>
                 </div>
               </div>
             </div>
