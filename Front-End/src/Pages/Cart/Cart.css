@@ -13,7 +13,7 @@
     font-weight: 600;
 }
 
-.crumbs-text {
+.cart-crumbs-text {
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -22,7 +22,7 @@
     gap: 0.5rem;
 }
 
-.crumbs-text a {
+.cart-crumbs-text a {
     text-decoration: none;
     color: black;
 }

@@ -30,11 +30,13 @@
     color: rgba(0, 0, 0, 0.581);
     margin-bottom: 2rem;
 }
-.hero-content button{
+
+.hero-content button {
     padding: 1rem 2.5rem;
     border-radius: 0.5rem;
     background-color: black;
     color: white;
     letter-spacing: 3px;
     outline: none;
+    cursor: pointer;
 }
