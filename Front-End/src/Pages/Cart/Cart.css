@@ -30,8 +30,8 @@
 .cart-items-section {
   width: 1300px;
   margin: auto;
-  border: 1px solid black;
-  height: 60vh;
+  /* border: 1px solid black; */
+  /* height: 60vh; */
   margin-top: 4rem;
   padding: 2rem 2rem;
   display: flex;

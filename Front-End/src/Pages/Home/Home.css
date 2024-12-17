@@ -1,6 +1,6 @@
 .hero-section {
     background-image: url(../../assets/Hero.jpg);
-    width: 1300px;
+    max-width: 1300px;
     margin: auto;
     border-radius: 0.5rem;
     background-repeat: no-repeat;

@@ -13,7 +13,7 @@ import { increasementQuantity, decreasementQuantity, removeItem, getCartTotal } 
 const Cart = () => {
 
   const { cart, totalQuantity, totalPrice } = useSelector((state) => state.allCart)
-  
+
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +33,10 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      {/* disabled={data.quantity === 1} */}
+
+
+      
       <div className="cart-items-section">
         <div className="cart-products-section">
           <div className="cart-product-titles">
@@ -55,14 +59,12 @@ const Cart = () => {
                 <button
                   className="quantity-btn"
                   onClick={() => dispatch(decreasementQuantity(data.id))}>
-                  {/* disabled={data.quantity === 1} */}
                   <FontAwesomeIcon icon={faMinus} />
                 </button>
                 <input type="number" value='data' className='quantity-input' readOnly />
                 <button
                   className="quantity-btn"
                   onClick={() => dispatch(increasementQuantity(data.id))}>
-                  {/* disabled={data.quantity === 1} */}
                   <FontAwesomeIcon icon={faPlus} />
                 </button>
               </div>
@@ -92,6 +94,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
 
 
       {/* Cart-Items Ui */}
