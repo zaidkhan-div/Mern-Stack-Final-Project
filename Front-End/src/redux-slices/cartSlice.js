@@ -43,8 +43,28 @@ const cartSlice = createSlice({
                 }
                 return item;
             })
+        },
+        getCartTotal: (state) => {
+            let { totalQuantity, totalPrice } = state.cart.reduce(
+                (cartTotal, cartItem) => {
+                    console.log("carttotal", cartTotal);
+                    console.log("cartitem", cartItem);
+                    const { price, quantity } = cartItem;
+                    console.log(price, quantity);
+                    const itemTotal = price * quantity;
+                    cartTotal.totalPrice += itemTotal;
+                    cartTotal.totalQuantity += quantity;
+                    return cartTotal;
+                }, {
+                totalPrice: 0,
+                totalQuantity: 0,
+            }
+            );
+            state.totalPrice = parseInt(totalPrice.toFixed(2));
+            state.totalQuantity = totalQuantity;
         }
+
     }
 })
-export const { addToCart, removeItem, increasementQuantity, decreasementQuantity } = cartSlice.actions;
+export const { addToCart, removeItem, increasementQuantity, decreasementQuantity,getCartTotal } = cartSlice.actions;
 export default cartSlice.reducer;
