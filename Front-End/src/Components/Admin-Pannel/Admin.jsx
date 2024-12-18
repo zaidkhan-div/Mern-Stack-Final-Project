@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 const App = () => {
-  const [data2, setdata] = useState();
+  const [data, setdata] = useState();
   const [title, settitle] = useState();
   const [price, setprice] = useState();
   const [pic, setpic] = useState();
 
   useEffect(() => {
-   fetch("http://localhost:3000/get").then(data => setdata(data.json()))
-  },[])
-  console.log(data2);
+    fetch("http://localhost:3000/get").then(data => setdata(data.json()))
+  }, [])
+  console.log(data);
 
 
   const submit = async (e) => {
@@ -29,12 +29,12 @@ const App = () => {
       console.error("Failed to add product");
     }
   };
-  
+
 
   return (
     <>
       <center>
-        <h1>admin page</h1>
+        <h1>Admin page</h1>
         <form onSubmit={submit} method="POST">
           <input
             type="text"
@@ -55,17 +55,17 @@ const App = () => {
           <br />
           <br />
           <label htmlFor="pic">upload image </label>
-          <input type="text" name="pic" 
+          <input type="text" name="pic"
             value={pic}
             onChange={(e) => setpic(e.target.value)}
           />
           <br />
           <br />
-         
+
           <input type="submit" value="click" />
         </form>
       </center>
     </>
   );
 };
-export default App;
+export default App;

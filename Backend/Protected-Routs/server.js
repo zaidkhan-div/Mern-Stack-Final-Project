@@ -9,7 +9,7 @@ const authenticateToken = require('./authMiddleware');
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 
-// const PORT="3000"
+const PORT="3000"
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -33,12 +33,13 @@ db.connect((err) => {
 
 
 // Register Route
+
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { name, email, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
-    db.query(sql, [username, hashedPassword], (err) => {
+    const sqlquery = 'INSERT INTO users (name,email,password) VALUES (?, ?,?)';
+    db.query(sqlquery, [name, email, hashedPassword], (err) => {
       if (err) {
         return res.status(400).json({ message: 'User already exists or an error occurred', error: err.message });
       }
@@ -51,22 +52,24 @@ app.post('/register', async (req, res) => {
 
 // Login Route
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const sql = 'SELECT * FROM users WHERE username = ?';
-  db.query(sql, [username], async (err, results) => {
+  const { email, password } = req.body;
+  const sql = 'SELECT * FROM users WHERE email = ?';
+  
+  db.query(sql, [email], async (err, results) => {
     if (err) return res.status(500).json({ message: 'Server error', error: err.message });
     if (results.length === 0) return res.status(401).json({ message: 'Invalid credentials' });
 
     const user = results[0];
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password);  // Corrected here
     if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
-    const payload = { userId: user.id, username: user.username };
+    const payload = { userId: user.id, name: user.name };  // Corrected here
     const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: '1h' });
 
     res.json({ token });
   });
 });
+
 
 // Protected Route
 app.get('/protected', authenticateToken, (req, res) => {
@@ -87,13 +90,13 @@ app.get('/profile', authenticateToken, (req, res) => {
 
 
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
   res.send('Hello world This is Protected Routes')
 })
-console.log(process.env.JWT_SECRET_KEY ,'This is Env File');
+console.log(process.env.JWT_SECRET_KEY, 'This is Env File');
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
