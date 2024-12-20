@@ -7,18 +7,37 @@ const RegisterForm = () => {
     name: "",
     email: "",
     password: "",
-  });
+  })
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Registration Successful!");
+    try {
+      const response = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Registration Successful!');
+        setFormData({ name: "", email: "", password: "" }); // Reset the form
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred');
+    }
   };
+
 
   return (
     <div className="form-container">

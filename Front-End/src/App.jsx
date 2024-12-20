@@ -12,6 +12,7 @@ import Cart from './Pages/Cart/Cart'
 import Admin from './Components/Admin-Pannel/Admin'
 import Resgister from './Components/Register/Resgister'
 import Login from './Components/Login/Login'
+import Protected from './Components/Protected-Routes/Protected'
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
+        {/* <Protected><Home/><Protected/> */}
         <Route path='/' element={<Home />} />
         <Route path='about' element={<About />} />
         <Route path='products' element={<ProductsData />} />

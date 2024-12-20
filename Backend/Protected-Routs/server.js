@@ -3,18 +3,22 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const mysql = require('mysql')
+const cors = require('cors');
+
 // const db = require('./db');
 
 const authenticateToken = require('./authMiddleware');
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 
-const PORT="3000"
+const PORT = "3000"
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-console.log(process.env);
+
+console.log(process.env, 'This is Env');
 
 const db = mysql.createConnection({
   host: 'localhost',
@@ -38,7 +42,7 @@ app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const sqlquery = 'INSERT INTO users (name,email,password) VALUES (?, ?,?)';
+    const sqlquery = 'INSERT INTO testing.users (name,email,password) VALUES (?, ?,?)';
     db.query(sqlquery, [name, email, hashedPassword], (err) => {
       if (err) {
         return res.status(400).json({ message: 'User already exists or an error occurred', error: err.message });
@@ -54,7 +58,7 @@ app.post('/register', async (req, res) => {
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   const sql = 'SELECT * FROM users WHERE email = ?';
-  
+
   db.query(sql, [email], async (err, results) => {
     if (err) return res.status(500).json({ message: 'Server error', error: err.message });
     if (results.length === 0) return res.status(401).json({ message: 'Invalid credentials' });
@@ -78,7 +82,7 @@ app.get('/protected', authenticateToken, (req, res) => {
 
 // Another Example of a Protected Route
 app.get('/profile', authenticateToken, (req, res) => {
-  const sql = 'SELECT id, username FROM users WHERE id = ?';
+  const sql = 'SELECT id, name FROM users WHERE id = ?';
   db.query(sql, [req.user.userId], (err, results) => {
     if (err) return res.status(500).json({ message: 'Server error', error: err.message });
     if (results.length === 0) return res.status(404).json({ message: 'User not found' });

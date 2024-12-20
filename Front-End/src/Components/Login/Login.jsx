@@ -14,11 +14,31 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Registration Successful!");
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: formData.email, password: formData.password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        localStorage.setItem('token', data.token); // Save token in localStorage
+        alert('Login Successful!');
+      } else {
+        alert(data.message || 'Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred');
+    }
   };
+  
 
   return (
     <div className="form-container">
@@ -50,7 +70,7 @@ const Login = () => {
           />
         </div>
         <button type="submit" className="register-btn">Login</button>
-        <Link to='/register'><p style={{ marginTop: 10,}}>Create an account!</p></Link>
+        <Link to='/register'><p style={{ marginTop: 10, }}>Create an account!</p></Link>
       </form>
     </div>
   );
