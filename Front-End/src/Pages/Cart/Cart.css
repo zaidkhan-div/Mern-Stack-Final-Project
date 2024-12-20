@@ -27,6 +27,8 @@
   color: black;
 }
 
+
+
 .cart-items-section {
   width: 1300px;
   margin: auto;
@@ -35,7 +37,14 @@
   margin-top: 4rem;
   padding: 2rem 2rem;
   display: flex;
+  margin-bottom: 2rem;
   justify-content: space-between;
+}
+
+.empy-cart {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10%;
 }
 
 .cart-products-section {
@@ -45,27 +54,35 @@
 .cart-product-titles {
   background-color: #f7f7f7;
   height: 2rem;
+  border-radius: 0.5rem;
   /* width: 60%; */
   /* border: 1px solid black; */
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 5rem;
-  padding: 1.5rem 0rem;
+  justify-content: space-between;
+  /* gap: 5rem; */
+  padding: 1.5rem 1rem;
 }
 
-.cart-product-image {}
+.cart-product {
+  width: 130px;
+}
+
+.cart-product img {
+  width: 100%;
+}
 
 .cart-product-prices {
   display: flex;
+  /* justify-content: space-between; */
   font-size: 18px;
-  gap: 5rem;
+  gap: 7rem;
 }
 
 .cart-product-tab {
   border-bottom: 1px solid black;
   /* width: 60%; */
-  /* height: 10px; */
+  height: 20vh;
   /* background-color: #f7f7f7; */
   margin-top: 1.5rem;
   padding: 1.5rem 1.5rem;
@@ -78,12 +95,51 @@
   display: flex;
   width: 50%;
   /* border: 1px solid black; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 7rem;
+}
+
+.cart-quantity {
+  border: 1px solid #e9e9e9;
+  background-color: #f7f7f7;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 52px;
+  /* font-size: 16px; */
+  padding: 12px;
+  justify-content: center;
+  /* padding: 1rem; */
+}
+
+.cart-quantity button {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.cart-quantity input {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+
+.cart-delete button {
+  background-color: transparent;
+  border: none;
+  font-size: 19px;
+  cursor: pointer;
+  color: red;
+
 }
 
 .order-summary-section {
   border-radius: 1rem;
   width: 30%;
+  height: 50vh;
   background-color: #f7f7f7;
   padding: 1rem 2rem;
 }

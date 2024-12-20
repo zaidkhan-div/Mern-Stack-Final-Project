@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import './Cart.css'
-import { Link } from 'react-router-dom'
+import { data, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGreaterThan, faTrash, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faGreaterThan, faTrash, faMinus, faPlus, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { useSelector, useDispatch } from 'react-redux'
-import { } from '../../redux-slices/cartSlice'
 import { increasementQuantity, decreasementQuantity, removeItem, getCartTotal } from '../../redux-slices/cartSlice'
 // import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
@@ -33,9 +32,10 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
       {/* disabled={data.quantity === 1} */}
 
-
+      {/* Cart-Items Ui */}
       
       <div className="cart-items-section">
         <div className="cart-products-section">
@@ -46,33 +46,46 @@ const Cart = () => {
             <div className="cart-product-prices">
               <div className='cart-product-price'><p>Price</p></div>
               <div className='cart-product-quantity'><p>Quantity</p></div>
-              <div className='cart-product-price'><p>Total Price</p></div>
+              {/* <div className='cart-product-quantity'><p>Total Price</p></div> */}
+              <div className='cart-product-price'><p>Remove</p></div>
             </div>
           </div>
-          <div className="cart-product-tab">
-            <div className="cart-product">
-              <h1>AddedProd</h1>
-            </div>
-            <div className="cart-product-details">
-              <div className="cart-price"><p>1000</p></div>
-              <div className="cart-quantity">
-                <button
-                  className="quantity-btn"
-                  onClick={() => dispatch(decreasementQuantity(data.id))}>
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <input type="number" value='data' className='quantity-input' readOnly />
-                <button
-                  className="quantity-btn"
-                  onClick={() => dispatch(increasementQuantity(data.id))}>
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
+
+          {/* Cart Items */}
+
+          {cart.length > 0 ? (
+            cart.map((data) => (
+              <div className="cart-product-tab">
+                <div className="cart-product">
+                  <img src={data.images} alt={data.title} className='product-image' />
+                </div>
+                <div className="cart-product-details">
+                  <div className="cart-price"><p>${data.price}</p></div>
+                  <div className="cart-quantity">
+                    <button
+                      className="quantity-btn"
+                      onClick={() => dispatch(decreasementQuantity(data.id))}>
+                      <FontAwesomeIcon icon={faMinus} />
+                    </button>
+                    <input type="number" value={data.quantity} className='quantity-input' readOnly />
+                    <button
+                      className="quantity-btn"
+                      onClick={() => dispatch(increasementQuantity(data.id))}>
+                      <FontAwesomeIcon icon={faPlus} />
+                    </button>
+                  </div>
+                  {/* <div className="cart-total-price">TotalPrice</div> */}
+                  <div className="cart-delete"><button onClick={() => dispatch(removeItem(data.id))}><i className="fa-regular fa-circle-xmark"></i></button></div>
+                </div>
               </div>
-              <div className="cart-total-price">TotalPrice</div>
-              <div className="cart-delete">X</div>
-            </div>
-          </div>
+            ))
+          ) : (
+            <p className='empy-cart'>Your Cart is Empty!</p>
+          )}
         </div>
+
+        {/* Order Summary */}
+
         <div className="order-summary-section">
           <div className="order-summary-title">
             <h2>Order Summary</h2>
@@ -82,12 +95,12 @@ const Cart = () => {
             <div><p>Price</p></div>
           </div>
           <div className="order-discount">
-            <div><h3>Discount</h3></div>
-            <div><h3>Price</h3></div>
+            <div><h3>Total Quantity</h3></div>
+            <div><h3>{totalQuantity}</h3></div>
           </div>
           <div className="order-total">
-            <div><h3>Total</h3></div>
-            <div><h3>Price</h3></div>
+            <div><h3>Total Price</h3></div>
+            <div><h3>{totalPrice}</h3></div>
           </div>
           <div className="order-button">
             <Link to='/checkout'><button>PROCESS TO CHECKOUT</button></Link>
@@ -97,9 +110,9 @@ const Cart = () => {
 
 
 
-      {/* Cart-Items Ui */}
 
-      <div>
+
+      {/* <div>
         <section className="cart-section">
           <div className="container">
             <div className="row">
@@ -163,7 +176,7 @@ const Cart = () => {
             </div>
           </div>
         </section>
-      </div>
+      </div> */}
 
       {/*  Cart-Item Ui Ends Here */}
 
