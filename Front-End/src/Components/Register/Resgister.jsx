@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
+
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -40,49 +43,65 @@ const RegisterForm = () => {
 
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="register-form">
-        <div className="input-group">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleChange}
-            // onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            required
-          />
+    <>
+
+      <div className="cart-hero">
+        <h1>Register</h1>
+        <div className="cart-breadcrumbs">
+          <div className="cart-crumbs-text">
+            <Link to='/'><p>Home</p></Link>
+            <FontAwesomeIcon icon={faGreaterThan} />
+            <p>Register</p>
+          </div>
         </div>
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="register-btn">Register</button>
-        <Link to='/login'><p style={{ marginTop: 10, }}>Already have an account!</p></Link>
-      </form>
-    </div>
+      </div>
+
+      {/* Hero-Section */}
+
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="register-form">
+          <div className="input-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              // onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className="register-btn">Register</button>
+          <Link to='/login'><p style={{ marginTop: 10, }}>Already have an account!</p></Link>
+        </form>
+      </div>
+    </>
   );
 };
 

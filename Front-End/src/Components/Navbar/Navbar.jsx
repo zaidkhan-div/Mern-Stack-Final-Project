@@ -77,7 +77,7 @@ const Navbar = () => {
             </div>
             <div>
               <Link to='/login'>
-                <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faUser} />
               </Link>
             </div>
 

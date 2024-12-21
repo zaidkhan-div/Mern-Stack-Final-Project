@@ -23,14 +23,14 @@ const App = () => {
       <Navbar />
       <Routes>
         {/* <Protected><Home/><Protected/> */}
-        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Protected><Home /></Protected>} />
         <Route path='about' element={<About />} />
-        <Route path='products' element={<ProductsData />} />
+        <Route path='products' element={<Protected><ProductsData /></Protected>} />
         <Route path='contact' element={<Contact />} />
         <Route path='admin' element={<Admin />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path='cart' element={<Cart />} />
-        <Route path='login' element={<Login />} />
         <Route path='register' element={<Resgister />} />
       </Routes>
       <Footer />
