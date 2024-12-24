@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const App = () => {
+const AddProduct = () => {
   const [data, setdata] = useState();
   const [title, settitle] = useState();
   const [price, setprice] = useState();
@@ -68,4 +68,4 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default AddProduct;

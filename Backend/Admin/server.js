@@ -4,6 +4,7 @@ const port = 3000;
 const cors = require('cors');
 const mysql = require('mysql2')
 
+// Used
 app.use(express.json());
 app.use(cors())
 
@@ -41,7 +42,7 @@ app.post('/admin', function (req, res) {
 
 
 app.get('/', (req, res) => {
-  res.send('Connection With MySql')
+  res.send('This is Admin Pannel')
 })
 
 app.listen(port, () => {
