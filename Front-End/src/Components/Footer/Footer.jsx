@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import Logo from './../../assets/Logo.svg'
+import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
@@ -24,7 +25,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-section-3">
                     <h2>Quicl Link</h2>
-                    <p>Home</p>
+                    <p><Link to='/'>Home</Link></p>
                     <p>About Us</p>
                     <p>Products</p>
                     <p>Contact Us</p>

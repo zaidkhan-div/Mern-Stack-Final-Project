@@ -1,0 +1,31 @@
+.simple-error-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text */
+    font-family: Arial, sans-serif;
+  }
+  
+  .simple-error-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .simple-error-btn {
+    background-color: #000000; /* Black button */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: background-color 0.3s ease;
+  }
+  
+  .simple-error-btn:hover {
+    background-color: #333333; /* Slightly lighter black on hover */
+  }
+  

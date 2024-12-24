@@ -2,7 +2,7 @@ import React from 'react'
 import './Home.css'
 import { Link } from 'react-router-dom'
 import Sidebar from '../../Components/Cart-Sidebar/Sidebar'
-
+import Gallery from '../../Components/Product-Gallery/Gallery'
 
 const Home = () => {
   return (
@@ -15,6 +15,7 @@ const Home = () => {
           <Link to='/products'><button>SHOP COLLECTION</button></Link>
         </div>
       </div>
+      <Gallery />
     </div>
   )
 }

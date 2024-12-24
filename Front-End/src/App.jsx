@@ -9,11 +9,10 @@ import ProductsData from './Pages/Products/ProductsData'
 import Contact from './Pages/Contact/Contact'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
-import Admin from './Components/Admin-Pannel/Admin'
 import Resgister from './Components/Register/Resgister'
 import Login from './Components/Login/Login'
 import Protected from './Components/Protected-Routes/Protected'
-
+import ErrorPage from './Pages/ErrorPage.jsx/Error'
 
 
 
@@ -24,14 +23,15 @@ const App = () => {
       <Routes>
         {/* <Protected><Home/><Protected/> */}
         <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Protected><Home /></Protected>} />
+        {/* <Route path='/' element={<Protected><Home /></Protected>} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='about' element={<About />} />
         <Route path='products' element={<Protected><ProductsData /></Protected>} />
         <Route path='contact' element={<Contact />} />
-        <Route path='admin' element={<Admin />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path='cart' element={<Cart />} />
         <Route path='register' element={<Resgister />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>

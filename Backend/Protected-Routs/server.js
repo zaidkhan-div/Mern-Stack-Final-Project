@@ -67,7 +67,7 @@ app.post('/login', (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);  // Corrected here
     if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
-    const payload = { userId: user.id, name: user.name };  // Corrected here
+    const payload = { userId: user.id, name: user.name, email: user.email };  // Corrected here
     const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: '1h' });
 
     res.json({ token });
