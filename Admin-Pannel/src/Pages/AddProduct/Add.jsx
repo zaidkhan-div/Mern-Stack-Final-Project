@@ -1,71 +1,79 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const AddProduct = () => {
-  const [data, setdata] = useState();
-  const [title, settitle] = useState();
-  const [price, setprice] = useState();
-  const [pic, setpic] = useState();
-
-  useEffect(() => {
-    fetch("http://localhost:3000/get").then(data => setdata(data.json()))
-  }, [])
-  console.log(data);
-
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
 
   const submit = async (e) => {
     e.preventDefault();
-
+    setTitle('')
+    setPrice('')
+    setDescription('')
+    setImage('')
     const response = await fetch("http://localhost:3000/admin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, price }),
+      body: JSON.stringify({ title, price, description, image }),
     });
 
     if (response.ok) {
+      alert("Product added successfully");
       console.log("Product added successfully");
     } else {
       console.error("Failed to add product");
     }
   };
 
-
   return (
     <>
       <center>
-        <h1>Admin page</h1>
+        <h1>Admin Page</h1>
         <form onSubmit={submit} method="POST">
+          <label htmlFor="title">Product Title</label>
           <input
             type="text"
-            placeholder="product name"
+            placeholder="Product name"
             value={title}
-            onChange={(e) => {
-              settitle(e.target.value);
-            }}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <br />
           <br />
+          <label htmlFor="price">Product Price</label>
           <input
             type="number"
-            placeholder="price"
+            placeholder="Price"
             value={price}
-            onChange={(e) => setprice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
           />
           <br />
           <br />
-          <label htmlFor="pic">upload image </label>
-          <input type="text" name="pic"
-            value={pic}
-            onChange={(e) => setpic(e.target.value)}
+          <label htmlFor="desc">Product Description</label>
+          <input
+            type="text"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <br />
           <br />
-
-          <input type="submit" value="click" />
+          <label htmlFor="image">Image URL</label>
+          <input
+            type="text"
+            placeholder="Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+          <br />
+          <br />
+          <input type="submit" value="Add Product" />
         </form>
       </center>
     </>
   );
 };
+
 export default AddProduct;
