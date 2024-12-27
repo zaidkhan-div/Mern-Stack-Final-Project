@@ -12,7 +12,7 @@ const AddProduct = () => {
     setPrice('')
     setDescription('')
     setImage('')
-    const response = await fetch("http://localhost:3000/admin", {
+    const response = await fetch("http://localhost:3000/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
