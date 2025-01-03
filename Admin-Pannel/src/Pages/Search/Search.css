@@ -1,0 +1,68 @@
+/* SearchProduct.css */
+.search-container {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+}
+
+#search-productId {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+.product-container {
+    margin-top: 20px;
+}
+
+.searc-product {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.product p {
+    font-size: 16px;
+}
+
+.no-products {
+    font-size: 18px;
+    color: gray;
+}
