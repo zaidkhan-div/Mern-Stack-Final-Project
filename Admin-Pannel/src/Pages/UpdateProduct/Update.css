@@ -1,0 +1,84 @@
+/* Container */
+.update-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Title */
+  .update-title {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  .update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Input fields */
+  .update-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .update-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Textarea */
+  .update-textarea {
+    resize: none;
+    min-height: 80px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .update-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button */
+  .update-btn{
+    background-color: #000000;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  /* Message */
+  .update-message {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    color: #28a745;
+  }
+  
+  .update-message.error {
+    color: #dc3545;
+  }
+  

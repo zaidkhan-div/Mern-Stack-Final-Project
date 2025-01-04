@@ -26,16 +26,6 @@ connection.connect(function (err) {
 
 app.post('/add', function (req, res) {
   const { title, price, description, image } = req.body
-  // console.log(req.body);
-
-  //   if (title && price) {
-  //     // let sql = `INSERT INTO testing.products (title, price, desc, image) VALUES ("${title}", "${price}","${desc}","${image}" )`;
-  //     connection.query(sql, function (err, result) {
-  //       if (err) throw err;
-  //       res.send('done')
-  //     });
-  //   }
-  //   console.log('Done');
 
   try {
     let sql = `INSERT INTO testing.products (title, price, description, image) VALUES (?,?,?,?)`;
@@ -71,35 +61,24 @@ app.delete('/delete/:id', function (req, res) {
   });
 });
 
-// app.get('/search/:id', function (req, res) {
-//   const { id } = req.params;
+app.put('/update/:id', (req, res) => {
+  const { id } = req.params;
+  const { title, price, description } = req.body;
 
-//   const sql = `select * from testing.products where id = ?`;
-//   connection.query(sql, [id], (err, result) => {
-//     console.log(result[0],"This is Result Products Data");
-//     if (err) {
-//       return res.status(500).json({ message: "Failed to get product", error: err.message });
-//     }
-//     if (result.length > 0) {
-//       return res.status(200).json(result);
-//     }
+  const sql = `UPDATE testing.products SET title = ?, price = ?, description = ? WHERE id = ?`;
 
-//     else {
-//       return res.status(400).json({ message: "Product Not Found" })
-//     }
-//     // res.status(200).json({proQuery});
-//   });
-//   // const proQuery = `select * from testing.products`
-//   // const productsData = [title, price, description, image];
-//   // connection.query(proQuery, productsData, (err, result) => {
-//   //   if (err) {
-//   //     return res.status(500).json({ message: "Product Not found", error: err.message });
-//   //   }
-//   //   if (result) {
-//   //     res.status(200).json(productsData)
-//   //   }
-//   // })
-// });
+  connection.query(sql, [title, price, description, id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ message: 'Failed to update product', error: err.message });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({ message: 'Product updated successfully' });
+  });
+});
 
 app.get('/search/:id', function (req, res) {
   const { id } = req.params;
@@ -115,6 +94,22 @@ app.get('/search/:id', function (req, res) {
       return res.status(200).json(result[0]); // Return the first result (single product)
     } else {
       return res.status(404).json({ message: "Product not found" });
+    }
+  });
+});
+
+app.get('/products', function (req, res) {
+  const sql = `SELECT * FROM products`; // Query to get all products
+
+  connection.query(sql, (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: "Failed to fetch products", error: err.message });
+    }
+
+    if (results.length > 0) {
+      return res.status(200).json(results); // Return all products
+    } else {
+      return res.status(404).json({ message: "No products found" });
     }
   });
 });
