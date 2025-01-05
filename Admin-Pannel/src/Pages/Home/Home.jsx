@@ -3,7 +3,6 @@ import './Home.css';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
-
   // Fetch products from the database
   useEffect(() => {
     const fetchProducts = async () => {

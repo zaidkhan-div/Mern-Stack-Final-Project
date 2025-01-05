@@ -1,75 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Search.css';
 
 const SearchProduct = () => {
-    const [id, setId] = useState(''); // For storing product ID input
-    const [products, setProducts] = useState([]); // For storing the fetched products
+    const [id, setId] = useState('');
+    const [products, setProducts] = useState([]);
+
+    // Load products from localStorage on component mount
+    // useEffect(() => {
+    //     const savedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+    //     setProducts(savedProducts);
+    // }, []);
+
+    // const handleDelete = (id) => {
+    //     // const productToDelete = products.find((product) => product.id === id);
+    //     // if (productToDelete) {
+    //     //     const updateProduct = products.filter((item) => item.id !== id)
+    //     //     setProducts(updateProduct);
+    //     //     localStorage.setItem('products', JSON.stringify(updateProduct));
+    //     // }
+    //     setProducts((prevProduct) => prevProduct.filter((item) => item.id !== id))
+    //     setId('')
+    // };
+
+    // Save products to localStorage whenever the products state changes
+    useEffect(() => {
+        localStorage.setItem('products', JSON.stringify(products));
+    }, [products]);
 
     const handleSearch = async (e) => {
         e.preventDefault();
 
-        // Check if ID is provided
         if (!id) return;
 
-        // Check if the product already exists in the products list by comparing IDs
         const existingProduct = products.find((product) => product.id === id);
 
-        // If product already exists, show alert and exit
         if (existingProduct) {
             alert('Product is already displayed!');
-            setId(''); // Clear the input after alert
+            setId('');
             return;
         }
 
-        // Fetch product details from the server
-        const response = await fetch(`http://localhost:3000/search/${id}`);
+        try {
+            const response = await fetch(`http://localhost:3000/search/${id}`);
+            if (response.ok) {
+                const product = await response.json();
 
-        if (response.ok) {
-            const product = await response.json();
-
-            // If product exists in response, add it to the list
-            if (product) {
-                setProducts((prevProducts) => [...prevProducts, product]);
+                if (product) {
+                    setProducts((prevProducts) => [...prevProducts, product]);
+                } else {
+                    alert('Product not found');
+                }
             } else {
-                alert('Product not found');
+                alert('Failed to fetch product');
             }
-        } else {
-            alert('Failed to fetch product');
+        } catch (error) {
+            console.error('Error fetching product:', error);
+            alert('Error fetching product');
         }
 
-        setId(''); // Clear input after search
+        setId('');
     };
 
     return (
         <div className="search-container">
-            <h2>Search Product</h2>
-            <form onSubmit={handleSearch}>
-                {/* <label htmlFor="productId">Enter Product ID to Search:</label> */}
-                <input
-                    id="search-productId"
-                    type="text"
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
-                    placeholder="Enter Product ID"
-                    required
-                />
-                <button type="submit" className='search-btn'>Search</button>
-            </form>
-
-            <div className="product-container">
+            <div className="search-form">
+                <h2>Search Product</h2>
+                <form onSubmit={handleSearch}>
+                    <input
+                        id="search-productId"
+                        type="text"
+                        value={id}
+                        onChange={(e) => setId(e.target.value)}
+                        placeholder="Enter Product ID"
+                        required
+                    />
+                    <button type="submit" className="search-btn">Search</button>
+                    </form>
+            </div>
+            <div className="products-container">
                 {products.length === 0 ? (
                     <p className="no-products">No products found. Start searching!</p>
                 ) : (
-                    <div>
-                        {products.map((product) => (
-                            <div className="searc-product" key={product.id}>
-                                <h3>Product ID: {product.id}</h3>
-                                <p><strong>Title:</strong> {product.title}</p>
-                                <p><strong>Price:</strong> ${product.price}</p>
-                                <p><strong>Description:</strong> {product.description}</p>
-                            </div>
-                        ))}
-                    </div>
+                    products.map((product) => (
+                        <div className="product-card" key={product.id}>
+                            <img src={product.image} alt={product.title} />
+                            <h3>{product.title}</h3>
+                            <p>{product.description}</p>
+                            <p><strong>Price:</strong> ${product.price}</p>
+                        </div>
+                    ))
                 )}
             </div>
         </div>

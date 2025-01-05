@@ -1,0 +1,88 @@
+/* Global Styles */
+  /* Container */
+  .delete-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background: #222;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Form Container */
+  .delete-form-container {
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Title */
+  .delete-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Form Label */
+  .delete-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #bbb;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  /* Input Field */
+  .delete-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  /* Input Focus */
+  .delete-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Button */
+  .delete-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .delete-container {
+      padding: 15px;
+    }
+  
+    .delete-title {
+      font-size: 22px;
+    }
+  
+    .delete-btn {
+      width: 100%;
+    }
+  }
+  
