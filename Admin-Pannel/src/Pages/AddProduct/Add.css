@@ -5,10 +5,10 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Main Container */
-  .add-product-container {
+}
+
+/* Main Container */
+.add-product-container {
     max-width: 500px;
     margin: 50px auto;
     padding: 20px;
@@ -17,37 +17,37 @@ body {
     background: #222;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
-  }
-  
-  /* Title */
-  .add-product-title {
+}
+
+/* Title */
+.add-product-title {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-  }
-  
-  /* Form Styles */
-  .add-product-form {
+}
+
+/* Form Styles */
+.add-product-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  /* Labels */
-  .add-product-label {
+}
+
+/* Labels */
+.add-product-label {
     font-size: 16px;
     font-weight: 500;
     color: #bbb;
     margin-bottom: 8px;
     text-align: left;
     width: 100%;
-  }
-  
-  /* Input Fields */
-  .add-product-input {
+}
+
+/* Input Fields */
+.add-product-input {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -57,46 +57,42 @@ body {
     background-color: #333;
     color: #fff;
     box-sizing: border-box;
-  }
-  
-  /* Input Focus */
-  .add-product-input:focus {
-    border-color: #007bff;
+}
+
+/* Input Focus */
+.add-product-input:focus {
+    border-color: #ffffff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-  }
-  
-  /* Button */
-  .add-product-btn {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Button */
+.add-product-btn {
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
-    background-color: #28a745;
+    color: #000000;
+    background-color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
-  }
-  
-  /* Button Hover */
-  .add-product-btn:hover {
-    background-color: #218838;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .add-product-container {
-      padding: 15px;
+        padding: 15px;
     }
-  
+
     .add-product-title {
-      font-size: 22px;
+        font-size: 22px;
     }
-  
+
     .add-product-btn {
-      width: 100%;
+        width: 100%;
     }
-  }
-  
+}

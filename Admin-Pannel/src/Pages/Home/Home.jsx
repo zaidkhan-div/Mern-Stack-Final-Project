@@ -7,16 +7,16 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/products'); // Replace with your API endpoint
+        const response = await fetch('http://localhost:3000/products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
   }, []);
+
 
   return (
     <div className="home-container">

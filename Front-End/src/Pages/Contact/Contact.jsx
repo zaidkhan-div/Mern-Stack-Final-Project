@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import './Contact.css'
 
 const Contact = () => {
   return (
@@ -20,7 +21,7 @@ const Contact = () => {
       {/* Hero-Section */}
       <div>
         <h1>This is Contact Page</h1>
-      </div>
+        </div>
     </>
   )
 }

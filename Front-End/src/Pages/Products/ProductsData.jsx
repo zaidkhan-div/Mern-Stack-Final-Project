@@ -7,7 +7,7 @@ import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const ProductsData = () => {
-  const [items, setItems] = useState()
+  const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch();
@@ -19,13 +19,14 @@ const ProductsData = () => {
   useEffect(() => {
     async function fecthData() {
       setLoading(true)
-      const url = await fetch('https://dummyjson.com/products');
+      const url = await fetch('http://localhost:3000/products');
       const json = await url.json();
       setLoading(false)
       setItems(json)
     }
     fecthData()
   }, [])
+  // console.log(items.length);
 
   // console.log(items);
 
@@ -48,13 +49,14 @@ const ProductsData = () => {
       </div>
 
       {/* Hero-Section */}
+
       <div className='products-container'>
         {
           loading ? <p style={{ fontSize: "3.5rem", textAlign: "center", marginTop: "5.5rem" }}>Loading...</p> : (
-            items?.products?.map(data => (
+            items.map((data) => (
               <div className="product-card" key={data.id}>
                 <div className="product-image">
-                  <img src={data.images} alt="Product Image" />
+                  <img src={data.image} alt="Product Image" />
                 </div>
                 <div className="card-content">
                   <h3 className="product-title">{data.title}</h3>
@@ -66,6 +68,7 @@ const ProductsData = () => {
             ))
           )
         }
+
       </div>
     </>
   )
