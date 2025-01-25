@@ -41,7 +41,7 @@ const SearchProduct = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/search/${id}`);
+            const response = await fetch(`https://node-setup-for-project.vercel.app/search/${id}`);
             if (response.ok) {
                 const product = await response.json();
 

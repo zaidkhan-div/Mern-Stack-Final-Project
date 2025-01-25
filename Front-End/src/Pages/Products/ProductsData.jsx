@@ -7,6 +7,7 @@ import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 const ProductsData = () => {
+
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -19,7 +20,7 @@ const ProductsData = () => {
   useEffect(() => {
     async function fecthData() {
       setLoading(true)
-      const url = await fetch('http://localhost:3000/products');
+      const url = await fetch('https://node-setup-for-project.vercel.app/products');
       const json = await url.json();
       setLoading(false)
       setItems(json)

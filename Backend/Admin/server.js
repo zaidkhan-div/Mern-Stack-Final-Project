@@ -1,26 +1,45 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 24853;
 const cors = require('cors');
 const mysql = require('mysql2')
+require('dotenv').config();
 
 // Used
 app.use(express.json());
 app.use(cors())
 
 
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'process.env.mysql',
+//   database: 'testing'
+// })
+// const connection = mysql.createConnection({
+// host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   database: 'testing',
+//   port: 24853,
+// })
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '@mysql!12#',
-  database: 'testing'
-})
-
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected!");
+const connection = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
+
+// connection.connect(function (err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
+
 // connection.connect()
 
 
@@ -99,7 +118,7 @@ app.get('/search/:id', function (req, res) {
 });
 
 app.get('/products', function (req, res) {
-  const sql = `SELECT * FROM products`; // Query to get all products
+  const sql = `SELECT * FROM products`;
 
   connection.query(sql, (err, results) => {
     if (err) {

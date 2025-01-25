@@ -10,11 +10,16 @@ const UpdateProduct = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    setId('');
+    setTitle('');
+    setPrice('');
+    setDescription('');
+
 
     const productData = { title, price, description };
 
     try {
-      const response = await fetch(`http://localhost:3000/update/${id}`, {
+      const response = await fetch(`https://node-setup-for-project.vercel.app/update/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +34,7 @@ const UpdateProduct = () => {
       }
     } catch (err) {
       console.error(err);
-      setMessage('Error updating product.');
+      // setMessage('Error updating product.');
     }
   };
 

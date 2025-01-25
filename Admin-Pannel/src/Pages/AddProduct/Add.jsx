@@ -13,7 +13,7 @@ const AddProduct = () => {
     setPrice('');
     setDescription('');
     setImage('');
-    const response = await fetch("http://localhost:3000/add", {
+    const response = await fetch("https://node-setup-for-project.vercel.app/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

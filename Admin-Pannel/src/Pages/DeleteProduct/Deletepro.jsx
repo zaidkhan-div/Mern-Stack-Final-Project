@@ -7,7 +7,7 @@ const Deletepro = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:3000/delete/${id}`, {
+    const response = await fetch(`https://node-setup-for-project.vercel.app/delete/${id}`, {
       method: 'DELETE',
     });
 
