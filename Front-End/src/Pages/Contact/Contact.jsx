@@ -19,8 +19,19 @@ const Contact = () => {
       </div>
 
       {/* Hero-Section */}
-      <div>
-        <h1>This is Contact Page</h1>
+      <div id='contact-form'>
+        <h2>Drop Us A Line</h2>
+       <form action="#">
+        <div className='form-inputs'>
+        <input type="text" placeholder='Firt Name' required/>
+        <input type="text" placeholder='Last Name' required />
+        </div>
+        <div className='form-inputs'>
+          <input type="email" placeholder='Email Address' />
+          <input type="number" placeholder='Phone Number'/>
+        </div>
+        <button type='submit' id=''>PAYMENT</button>
+       </form>
         </div>
     </>
   )

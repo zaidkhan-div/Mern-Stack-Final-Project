@@ -1,0 +1,26 @@
+.aboutpg {}
+
+.about-sections {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.secs {
+    text-align: center;
+    padding: 1rem;
+}
+
+.secs h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+.secs p {
+    line-height: 1.5rem;
+    color: rgba(0, 0, 0, 0.5);
+}

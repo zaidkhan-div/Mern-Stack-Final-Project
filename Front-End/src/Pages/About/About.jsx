@@ -1,4 +1,5 @@
 import React from 'react'
+import './About.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -16,13 +17,26 @@ const About = () => {
           </div>
         </div>
       </div>
+      {/* After Hero-Section */}
 
-      {/* Hero-Section */}
-      <div>
-        This is about us page
+      <div className='aboutpg'>
+        <div className="about-sections">
+          <div className="secs"><h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing  elit. Minus deserunt amet !</p>
+          </div>
+          <div className="secs"><h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing  elit. Minus deserunt amet !</p>
+          </div>
+          <div className="secs"><h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing  elit. Minus deserunt amet !</p>
+          </div>
+          <div className="secs"><h3>Heading</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing  elit. Minus deserunt amet !</p>
+          </div>
+        </div>
       </div>
     </>
-  )
+  ) 
 }
 
 export default About
