@@ -262,14 +262,11 @@
   align-items: center;
 }
 
-.quantity-decrease-btn,
-.quantity-increase-btn {
-  background-color: #007bff;
+.quantity-btn,
+.quantity-btn{
   /* Bootstrap primary color */
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
+  /* color: #fff; */
+ cursor: pointer;
 }
 
 .quantity-input {

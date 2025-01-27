@@ -30,7 +30,7 @@ const Contact = () => {
           <input type="email" placeholder='Email Address' />
           <input type="number" placeholder='Phone Number'/>
         </div>
-        <button type='submit' id=''>PAYMENT</button>
+        <button type='submit' id=''>SUBMIT</button>
        </form>
         </div>
     </>

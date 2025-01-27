@@ -40,3 +40,66 @@
     outline: none;
     cursor: pointer;
 }
+
+/* Single image on Hero Page */
+.signle-image {
+    background-image: url(../../assets/home-03.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    border-radius: 0.5rem;
+    height: 100vh;
+    margin: auto;
+    /* border: 1px solid black; */
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background-color: rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+    /* Blurriness */
+    z-index: -1;
+    /* background-color: rgba(0, 0, 0, 0.141); */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    padding-bottom: 4rem;
+}
+
+.signle-image h2 {
+    color: white;
+    padding-bottom: 1.5rem;
+    font-size: 4rem;
+}
+
+.signle-image button {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    /* border: 1px solid black; */
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease-in;
+}
+
+.signle-image button a {
+    color: black;
+    transition: all 0.3s ease-in;
+    text-decoration: none;
+}
+
+.signle-image button:hover {
+    background-color: black;
+}
+
+.signle-image button:hover a {
+    color: white;
+}
+
+.Swiper-carousal {
+    width: 95%;
+    margin: auto;
+}
