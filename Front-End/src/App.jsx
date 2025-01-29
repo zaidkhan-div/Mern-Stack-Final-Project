@@ -13,27 +13,34 @@ import Resgister from './Components/Register/Resgister'
 import Login from './Components/Login/Login'
 import Protected from './Components/Protected-Routes/Protected'
 import ErrorPage from './Pages/ErrorPage.jsx/Error'
+import BlogsData from './Components/Blogs/BlogsData'
+import BlogDetail from './Components/Blogs/BlogDetail'
 
-
+// Context
+import { ProductsProvider } from './Components/Context/ProductsContext'
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <Routes>
-        {/* <Protected><Home/><Protected/> */}
-        <Route path='/login' element={<Login />} />
-        {/* <Route path='/' element={<Protected><Home /></Protected>} /> */}
-        <Route path='/' element={<Home />} />
-        <Route path='about' element={<About />} />
-        <Route path='products' element={<ProductsData />} />
-        {/* <Route path='products' element={<Protected><ProductsData /></Protected>} /> */}
-        <Route path='contact' element={<Contact />} />
-        <Route path='checkout' element={<Checkout />} />
-        <Route path='cart' element={<Cart />} />
-        <Route path='register' element={<Resgister />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
+      <ProductsProvider>
+        <Routes>
+          {/* <Protected><Home/><Protected/> */}
+          <Route path='/login' element={<Login />} />
+          {/* <Route path='/' element={<Protected><Home /></Protected>} /> */}
+          <Route path='/' element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='products' element={<ProductsData />} />
+          {/* <Route path='products' element={<Protected><ProductsData /></Protected>} /> */}
+          <Route path='contact' element={<Contact />} />
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='cart' element={<Cart />} />
+          <Route path='register' element={<Resgister />} />
+          <Route path='*' element={<ErrorPage />} />
+          {/* <Route path='/blog' element={<BlogsData />} /> */}
+          <Route path='/blog/:id' element={<BlogDetail />} />
+        </Routes>
+      </ProductsProvider>
       <Footer />
     </div>
   )

@@ -1,0 +1,28 @@
+.testimonial-card {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    height: 300px;
+}
+
+.quote-icon {
+    font-size: 50px;
+    color: #e0e0e0;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-size: 16px;
+    color: #000;
+    margin-top: 10px;
+}
