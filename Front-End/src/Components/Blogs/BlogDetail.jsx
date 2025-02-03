@@ -7,10 +7,10 @@ import ErrorPage from '../../Pages/ErrorPage.jsx/Error'
 const BlogDetail = () => {
     const { id } = useParams();
     const blog = blogs.find(blog => blog.id === parseInt(id))
-    if (!blog) return <ErrorPage/>
+    if (!blog) return <ErrorPage />
 
     return (
-        <div className='blogsDetails'>
+        <div className='blog-details'>
             <div className="details-Image">
                 <img src={blog.image} alt="" />
             </div>
