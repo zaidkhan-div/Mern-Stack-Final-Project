@@ -50,7 +50,7 @@ const Home = () => {
           <p>Mollis aliquam ut porttitor leo a diam. Imperdiet sed <br /> euismod nisi porta lorem mollis.</p>
         </div>
         <BlogsData />
-      </div>
+        </div>
       {/* Icons */}
       <div className="home-icons">
         <div className="icons-box">

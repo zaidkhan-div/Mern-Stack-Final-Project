@@ -14,7 +14,7 @@ const ProductsData = () => {
 
   // const [items, setItems] = useState([])
   // const [loading, setLoading] = useState(false)
-  
+
 
   const dispatch = useDispatch();
 
@@ -58,8 +58,8 @@ const ProductsData = () => {
       <div className='products-container'>
         {
           loading ? <p style={{ fontSize: "3.5rem", textAlign: "center", marginTop: "5.5rem" }}>Loading...</p> : (
-            products.map((data) => (
-              <div className="product-card" key={data.id}>
+            products.map((data, index) => (
+              <div className="product-card" key={index}>
                 <div className="product-image">
                   <img src={data.image} alt="Product Image" />
                 </div>

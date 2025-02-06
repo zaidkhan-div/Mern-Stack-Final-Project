@@ -15,6 +15,7 @@ const BlogsData = () => {
                 loop={true}
             // autoplay={{ delay: 2000 }}
             >
+                {/* blogs.slice(0,3).map */}
                 {blogs.map((blog, index) => (
                     <SwiperSlide key={index}>
                         <div key={blog.id} className="blog-list">

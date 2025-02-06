@@ -239,7 +239,7 @@
 }
 
 .product-image {
-  max-width: 80%;
+  max-width: 70%;
   height: auto;
 }
 
@@ -263,10 +263,10 @@
 }
 
 .quantity-btn,
-.quantity-btn{
+.quantity-btn {
   /* Bootstrap primary color */
   /* color: #fff; */
- cursor: pointer;
+  cursor: pointer;
 }
 
 .quantity-input {

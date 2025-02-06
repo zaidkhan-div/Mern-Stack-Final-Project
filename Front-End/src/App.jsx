@@ -9,11 +9,11 @@ import ProductsData from './Pages/Products/ProductsData'
 import Contact from './Pages/Contact/Contact'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
+import Blogs from './Pages/Blogs/Blogs'
 import Resgister from './Components/Register/Resgister'
 import Login from './Components/Login/Login'
 import Protected from './Components/Protected-Routes/Protected'
 import ErrorPage from './Pages/ErrorPage.jsx/Error'
-import BlogsData from './Components/Blogs/BlogsData'
 import BlogDetail from './Components/Blogs/BlogDetail'
 
 // Context
@@ -36,9 +36,9 @@ const App = () => {
           <Route path='checkout' element={<Checkout />} />
           <Route path='cart' element={<Cart />} />
           <Route path='register' element={<Resgister />} />
-          <Route path='*' element={<ErrorPage />} />
-          {/* <Route path='/blog' element={<BlogsData />} /> */}
+          <Route path='blogs' element={<Blogs />} />
           <Route path='/blog/:id' element={<BlogDetail />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </ProductsProvider>
       <Footer />
