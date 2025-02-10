@@ -18,6 +18,7 @@ import BlogDetail from './Components/Blogs/BlogDetail'
 
 // Context
 import { ProductsProvider } from './Components/Context/ProductsContext'
+import Faqs from './Pages/Faqs/Faqs'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='products' element={<ProductsData />} />
+          <Route path='faqs' element={<Faqs/>} />
           {/* <Route path='products' element={<Protected><ProductsData /></Protected>} /> */}
           <Route path='contact' element={<Contact />} />
           <Route path='checkout' element={<Checkout />} />

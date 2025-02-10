@@ -45,48 +45,14 @@ const Navbar = () => {
   const [menu, setMenu] = useState('Home')
   const { totalQuantity } = useSelector((state) => state.allCart)
   // let totalQuantity = JSON.parse(localStorage.getItem('totalQuantity')) || 0;
-  const [showNavbar, setShowNavbar] = useState(true); // State to control navbar visibility
-  const [scrollingRight, setScrollingRight] = useState(false); // State to track horizontal scrolling
 
-  let lastScrollY = window.scrollY;
-  let lastScrollX = window.scrollX;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scrolling down
-        setShowNavbar(false);
-      } else {
-        // Scrolling up
-        setShowNavbar(true);
-      }
-
-      if (window.scrollX > lastScrollX) {
-        // Scrolling right
-        setScrollingRight(true);
-      } else {
-        // Scrolling left or no horizontal scroll
-        setScrollingRight(false);
-      }
-
-      lastScrollY = window.scrollY;
-      lastScrollX = window.scrollX;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <>
       <Top />
       <div className="container">
-        {/* <div className='main-navbar'> */}
-          <div className={`main-navbar ${showNavbar ? 'visible' : 'hidden'} ${scrollingRight ? 'scrolled-right' : ''}`}>
-
+        <div className='main-navbar'>
           <div className="logo">
             <Link to='/'><img src={Logo} alt="" /></Link>
           </div>

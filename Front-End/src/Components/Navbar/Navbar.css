@@ -114,15 +114,6 @@
     width: 100%;
 }
 
-/* .main-navbar {
-    padding: 1.2rem 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin: auto;
-} */
-
 .main-navbar {
     padding: 1.2rem 2.5rem;
     display: flex;
@@ -132,24 +123,8 @@
     margin: auto;
     position: fixed;
     background-color: white;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-.main-navbar.hidden {
-    /* transform: translateY(-100%); */
-    margin-top: -100%;
-}
-
-.main-navbar.visible {
-    /* transform: translateY(0); */
-    /* Show navbar */
-    margin-top: -45px;
-}
-
-.main-navbar.scrolled-right {
-    margin-top: 0;
-    /* Set margin-top to 0 when scrolling right */
+    margin-top: -8px;
+    z-index: 10000;
 }
 
 .logo {
