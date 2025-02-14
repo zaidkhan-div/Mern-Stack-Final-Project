@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import './Faqs.css'
+import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faGreaterThan, faL } from "@fortawesome/free-solid-svg-icons";
+import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
+import FaqsCompo from "../../Components/Faqs-Component/FaqsCompo";
 
 const Faqs = () => {
-    const [show, setShow] = useState(false);
-
+    const faqsItem = [
+        { question: "What is your return policy?", answer: "You can return items within 30 days." },
+        { question: "Do you offer international shipping?", answer: "Yes, we ship worldwide!" },
+        { question: "How can I track my order?", answer: "You will receive a tracking link via email." }
+    ];
     return (
         <>
             <div className="cart-hero">
@@ -19,18 +22,11 @@ const Faqs = () => {
                     </div>
                 </div>
             </div>
-            <div className="faqs-container">
-                <div className="faqs">
-                    <div className="faqs-head" onClick={() => setShow(!show)}>
-                        <div className="faqs-text">This is text</div>
-                        <div className="faqs-icon"><FontAwesomeIcon icon={faChevronRight} className={show ? 'rotate' : ''} /></div>
-                    </div>
-
-                    {show && <div className='faqs-para'>This is hidden para</div>}
-                </div>
-            </div>
+            {faqsItem.map((item, index) => (
+                <FaqsCompo key={index} question={item.question} answer={item.answer} />
+            ))}
         </>
     )
-}
 
+}
 export default Faqs

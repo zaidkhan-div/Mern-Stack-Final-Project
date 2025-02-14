@@ -65,6 +65,7 @@ const Navbar = () => {
 
               <Link to="/products" onClick={() => setMenu('Products')} className={menu === 'Products' ? 'active' : ''}>Products</Link>
               <Link to='/blogs' onClick={() => setMenu('Blogs')} className={menu === 'Blogs' ? 'active' : ''}>Blogs</Link>
+              <Link to='/faqs' onClick={() => setMenu('Faqs')} className={menu === 'Faqs' ? 'active' : ''} >Faqs</Link>
               <Link to="/contact" onClick={() => setMenu('Contact')} className={menu === 'Contact' ? 'active' : ''}>Contact Us</Link>
             </ul>
           </div>
